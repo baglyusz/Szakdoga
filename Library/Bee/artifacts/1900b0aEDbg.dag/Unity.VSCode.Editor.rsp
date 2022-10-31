@@ -118,6 +118,9 @@
 -define:ROSLYN_ANALYZER_FIX
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
+-r:"D:/programok/Unity/projects/AR_app/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Editor/Vuforia.Unity.Editor.dll"
+-r:"D:/programok/Unity/projects/AR_app/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Engine.dll"
+-r:"D:/programok/Unity/projects/AR_app/Library/PackageCache/com.ptc.vuforia.engine@27bfa56ccb82/Vuforia/Plugins/Managed/Runtime/Vuforia.Unity.Wrapper.dll"
 -r:"D:/programok/Unity/projects/AR_app/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/log4netPlastic.dll"
 -r:"D:/programok/Unity/projects/AR_app/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll"
 -r:"D:/programok/Unity/projects/AR_app/Library/PackageCache/com.unity.collab-proxy@1.17.1/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll"
@@ -212,6 +215,9 @@
 -r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll"
 -r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 -r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
+-r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Gradle.dll"
+-r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer/Unity.Android.Types.dll"
+-r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll"
 -r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
 -r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/Facades/Microsoft.Win32.Primitives.dll"
 -r:"D:/programok/Unity/Unity Hub/New folder/2021.3.8f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/Facades/netstandard.dll"

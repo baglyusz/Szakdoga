@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="ujjAll" size="0.065000 0.099048" />
+    <ImageTarget name="orr" size="0.065000 0.097739" />
+    <ImageTarget name="nyak" size="0.065000 0.097739" />
+    <ImageTarget name="kozepsoUjj" size="0.065000 0.097595" />
+    <ImageTarget name="kisujj" size="0.065000 0.099343" />
+    <ImageTarget name="ket_ujj" size="0.065000 0.098171" />
+    <ImageTarget name="ket_kar" size="0.065000 0.097595" />
+    <ImageTarget name="jobbVall" size="0.065000 0.098754" />
+    <ImageTarget name="jobbKonyokTorzs" size="0.065000 0.098462" />
+    <ImageTarget name="jobbKisujj" size="0.065000 0.096464" />
+    <ImageTarget name="jobbKezfejKonyok" size="0.065000 0.097882" />
+    <ImageTarget name="jobbKezfej" size="0.065000 0.101002" />
+    <ImageTarget name="jobbHuvelyk" size="0.065000 0.098754" />
+    <ImageTarget name="jobbFul" size="0.065000 0.098171" />
+    <ImageTarget name="jobbCsuklo" size="0.065000 0.097026" />
+    <ImageTarget name="jobbBalKez" size="0.065000 0.096744" />
+    <ImageTarget name="jobbAlkar" size="0.065000 0.100696" />
+    <ImageTarget name="huvelykujj" size="0.065000 0.099195" />
+    <ImageTarget name="hon" size="0.065000 0.099343" />
+    <ImageTarget name="ful" size="0.065000 0.097026" />
+    <ImageTarget name="fejTetejen" size="0.065000 0.097168" />
+    <ImageTarget name="balVall" size="0.065000 0.100544" />
+    <ImageTarget name="balSzemoldok" size="0.065000 0.098316" />
+    <ImageTarget name="balMutato" size="0.065000 0.099790" />
+    <ImageTarget name="balKonyokVall" size="0.065000 0.099343" />
+    <ImageTarget name="balKezfejKonyok" size="0.065000 0.097882" />
+    <ImageTarget name="balKezfej" size="0.065000 0.101002" />
+    <ImageTarget name="balCsuklo" size="0.065000 0.097452" />
+    <ImageTarget name="bal_tenyer" size="0.065000 0.099048" />
+  </Tracking>
+</QCARConfig>
