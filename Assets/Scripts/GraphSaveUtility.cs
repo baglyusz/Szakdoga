@@ -1,16 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Edge = UnityEditor.Experimental.GraphView.Edge;
 
 
 public class GraphSaveUtility
 {
-
     private DialogueGraphView _targetGraphView;
     private DialogueContainer _containerCache;
 
@@ -54,10 +52,10 @@ public class GraphSaveUtility
             });
         }
 
-        if (!AssetDatabase.IsValidFolder("Assets/Dialogue/Resources"))
-            AssetDatabase.CreateFolder("Dialogue", "Resources");
+        if (!AssetDatabase.IsValidFolder("Assets/Resources"))
+            AssetDatabase.CreateFolder("Assets", "Resources");
 
-        AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Dialogue/Resources/{fileName}.asset");
+        AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
         AssetDatabase.SaveAssets();
     }
 
@@ -78,7 +76,29 @@ public class GraphSaveUtility
 
     private void ConnectNodes()
     {
-        throw new System.NotImplementedException();
+        foreach (var t in Nodes)
+        {
+            var connections = _containerCache.NodeLinks.Where(x => x.baseNodeGuid == t.Guid).ToList();
+            for (var j = 0; j < connections.Count; j++)
+            {
+                var targetedNoteGuid = connections[j].targetNodeGuid;
+                var targetNode = Nodes.First(x => x.Guid == targetedNoteGuid);
+                LinkNodes(t.outputContainer[j].Q<Port>(), (Port)targetNode.inputContainer[0]);
+
+                targetNode.SetPosition(new Rect(
+                    _containerCache.DialogueNodeDatas.First(x => x.guid == targetedNoteGuid).position,
+                    _targetGraphView._defaultNodeSize
+                ));
+            }
+        }
+    }
+
+    private void LinkNodes(Port output, Port input)
+    {
+        var tempEdge = new Edge { output = output, input = input };
+        tempEdge.input.Connect(tempEdge);
+        tempEdge.output.Connect(tempEdge);
+        _targetGraphView.Add(tempEdge);
     }
 
     private void CreateNodes()
@@ -100,10 +120,8 @@ public class GraphSaveUtility
         //Set entry point's guid back from the save. Discard existing guid;
         Nodes.Find(x => x.EntryPoint).Guid = _containerCache.NodeLinks[0].baseNodeGuid;
 
-        foreach (var node in Nodes)
+        foreach (var node in Nodes.Where(node => !node.EntryPoint))
         {
-            if (node.EntryPoint) return;
-
             //Remove edges connected to this note
             Edges.Where(x => x.input.node == node).ToList()
                 .ForEach(edge => _targetGraphView.RemoveElement(edge)); //remove edges

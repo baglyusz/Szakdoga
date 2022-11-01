@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -47,11 +42,12 @@ public class DialogueGraph : EditorWindow
         var toolbar = new Toolbar();
 
         var fileNameTextField = new TextField("File name:");
+
         fileNameTextField.SetValueWithoutNotify(_fileName);
         fileNameTextField.MarkDirtyRepaint();
         fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
-        toolbar.Add(fileNameTextField);
 
+        toolbar.Add(fileNameTextField);
         toolbar.Add(new Button((() => RequestDataOperation(true))) { text = "Save Data" });
         toolbar.Add(new Button((() => RequestDataOperation(false))) { text = "Load Data" });
 
