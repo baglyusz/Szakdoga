@@ -358,7 +358,13 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VuforiaEditorScripts.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VuforiaScripts.ref.dll"
-"Assets/NewBehaviourScript.cs"
+"Assets/Scripts/DialogueContainer.cs"
+"Assets/Scripts/DialogueGraph.cs"
+"Assets/Scripts/DialogueGraphView.cs"
+"Assets/Scripts/DialogueNode.cs"
+"Assets/Scripts/DialogueNodeData.cs"
+"Assets/Scripts/GraphSaveUtility.cs"
+"Assets/Scripts/NodeLinkData.cs"
 -langversion:9.0
 
 /deterministic
