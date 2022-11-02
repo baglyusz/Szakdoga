@@ -359,6 +359,7 @@
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VuforiaEditorScripts.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aEDbg.dag/VuforiaScripts.ref.dll"
 "Assets/NewBehaviourScript.cs"
+"Assets/Scripts/Distance.cs"
 -langversion:9.0
 
 /deterministic
