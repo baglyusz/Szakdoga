@@ -59,11 +59,11 @@
     <Compile Include="Assets\Editor\Scripts\DialogueNode.cs" />
     <Compile Include="Assets\Editor\Scripts\DialogueNodeData.cs" />
     <Compile Include="Assets\Editor\Scripts\DialogueContainer.cs" />
-    <Compile Include="Assets\Editor\Migration\AddVuforiaEnginePackage.cs" />
     <Compile Include="Assets\Editor\Scripts\DialogueGraphView.cs" />
     <Compile Include="Assets\Editor\Scripts\NodeLinkData.cs" />
     <Compile Include="Assets\Editor\Scripts\DialogueGraph.cs" />
     <Compile Include="Assets\Editor\Scripts\GraphSaveUtility.cs" />
+    <Compile Include="Assets\Editor\Migration\AddVuforiaEnginePackage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -359,6 +359,15 @@
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.17.1\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.Unity.Editor">
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@27bfa56ccb82\Vuforia\Plugins\Managed\Editor\Vuforia.Unity.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.Unity.Wrapper">
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@27bfa56ccb82\Vuforia\Plugins\Managed\Runtime\Vuforia.Unity.Wrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Vuforia.Unity.Engine">
+      <HintPath>Library\PackageCache\com.ptc.vuforia.engine@27bfa56ccb82\Vuforia\Plugins\Managed\Runtime\Vuforia.Unity.Engine.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
@@ -813,8 +822,18 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
+    <Reference Include="VuforiaEditorScripts">
+      <HintPath>Library\ScriptAssemblies\VuforiaEditorScripts.dll</HintPath>
+    </Reference>
+    <Reference Include="VuforiaScripts">
+      <HintPath>Library\ScriptAssemblies\VuforiaScripts.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp.csproj">
+      <Project>{4B546F87-F7E0-FD76-70A0-6442AA2322E1}</Project>
+      <Name>Assembly-CSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="Mirror.csproj">
       <Project>{C9855930-B03B-A30A-44FE-656A8D2490F4}</Project>
       <Name>Mirror</Name>
