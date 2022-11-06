@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{4B546F87-F7E0-FD76-70A0-6442AA2322E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -54,15 +55,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\Scripts\NodeLinkData.cs" />
-    <Compile Include="Assets\Scripts\DialogueContainer.cs" />
-    <Compile Include="Assets\Scripts\DialogueGraphView.cs" />
-    <Compile Include="Assets\Scripts\DialogueNode.cs" />
-    <Compile Include="Assets\Scripts\GraphSaveUtility.cs" />
-    <Compile Include="Assets\Scripts\DialogueNodeData.cs" />
-    <Compile Include="Assets\Scripts\DialogueGraph.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Mirror\Plugins\Mono.Cecil\Mono.CecilX.dll" />
