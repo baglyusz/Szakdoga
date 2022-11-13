@@ -1,11 +1,10 @@
-﻿using Mirror;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Wire : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private bool _toBeCut;
-    
+
     [SerializeField]
     private bool _dummy;
 

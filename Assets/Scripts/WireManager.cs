@@ -1,5 +1,4 @@
-﻿using Mirror;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +14,10 @@ public class WireManager : MonoBehaviour
     private Canvas canvas;
 
     [SerializeField]
-    private GameObject feedback;
+    private TextMeshProUGUI text;
+
+    private string feedback;
+
 
     private void Start()
     {
@@ -25,21 +27,23 @@ public class WireManager : MonoBehaviour
 
     private void Update()
     {
-        if (_gameEnded) return;
+        if (_gameEnded)
+        {
+            canvas.gameObject.SetActive(true);
+
+            text.SetText(feedback);
+            return;
+        }
 
         if (_wireList.FindAll(x => x.Kaboom && x.BecomeCut).Count > 0)
         {
+            feedback = "ohno";
             _gameEnded = true;
-            canvas.gameObject.SetActive(true);
-            canvas.GetComponent<TextMeshProUGUI>().CrossFadeAlpha(0f, 0f, true);
-            canvas.GetComponent<TextMeshProUGUI>().CrossFadeAlpha(1f, 2000f, false);
         }
         else if (_wireList.FindAll(x => x.ToBeCut && x.BecomeCut).Count >= _mustCut)
         {
-            feedback.GetComponent<TMPro.TextMeshProUGUI>().text = "Pair 32!";
-            feedback.SetActive(true);
-
-            //SceneManager.LoadScene("");
+            feedback = "nice";
+            _gameEnded = true;
         }
     }
 }
