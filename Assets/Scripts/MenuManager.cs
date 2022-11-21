@@ -6,7 +6,8 @@ using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
 
-public class MenuManager : MonoBehaviourPunCallbacks{
+public class MenuManager : MonoBehaviourPunCallbacks
+{
 
     [Header(" — -Menus — -")]
     public GameObject mainMenu;
@@ -17,16 +18,17 @@ public class MenuManager : MonoBehaviourPunCallbacks{
 
     public Button joinRoomBtn;
     [Header(" — -Lobby Menu — -")]
-    public TextMeshProUGUI roomName;
-    
-    public TextMeshProUGUI playerList;
-    
+    public TMP_InputField roomName;
+
+    public TMP_InputField playerList;
+
     public Button startGameBtn;
 
     private void Start()
     {
         createRoomBtn.interactable = false;
         joinRoomBtn.interactable = false;
+
     }
 
     public override void OnConnectedToMaster()
@@ -44,12 +46,19 @@ public class MenuManager : MonoBehaviourPunCallbacks{
 
     public void OnCreateRoomBtn(TextMeshProUGUI roomNameInput)
     {
-        NetworkManager.instance.CreateRoom(roomNameInput.text);roomName.text = roomNameInput.text;
+        string BogiSaidString = roomName.text;
+        NetworkManager.instance.CreateRoom(BogiSaidString);
+        Debug.Log(BogiSaidString);
+        roomName.text = BogiSaidString;
+        /*    UIText = GameObject.FindGameObjectWithTag("Text").GetComponent<Text>();
+           UIText.text = gameObject.GetComponent<Text>().text;
+           */
     }
 
     public void OnJoinRoomBtn(TextMeshProUGUI roomNameInput)
     {
-        NetworkManager.instance.JoinRoom(roomNameInput.text);roomName.text = roomNameInput.text;
+        NetworkManager.instance.JoinRoom(roomNameInput.text);
+        roomName.text = roomNameInput.text;
     }
 
     public void OnPlayerNameUpdate(TextMeshProUGUI playerNameInput)
@@ -59,7 +68,8 @@ public class MenuManager : MonoBehaviourPunCallbacks{
 
     public override void OnJoinedRoom()
     {
-        SetMenu(lobbyMenu);photonView.RPC("UpdateLobbyUI", RpcTarget.All);
+        SetMenu(lobbyMenu);
+        photonView.RPC("UpdateLobbyUI", RpcTarget.All);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -84,23 +94,16 @@ public class MenuManager : MonoBehaviourPunCallbacks{
             }
         }
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            startGameBtn.interactable = true;
-        }
-        else
-        {
-            startGameBtn.interactable = false;
-        }
+        startGameBtn.interactable = PhotonNetwork.IsMasterClient;
     }
 
     public void OnLeaveLobbyBtn()
     {
-        PhotonNetwork.LeaveRoom();SetMenu(mainMenu);
+        PhotonNetwork.LeaveRoom(); SetMenu(mainMenu);
     }
 
     public void OnStartGameBtn()
     {
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Game");
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "PlantVsPlants");
     }
 }

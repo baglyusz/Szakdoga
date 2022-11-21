@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.CrossPlatformInput;
-using Photon.Pun.Demo.PunBasics;
-using Photon.Pun.Demo.Asteroids;
-using static UnityEditor.Progress;
 
 public class PlayerController : MonoBehaviourPunCallbacks
 {
@@ -43,12 +39,13 @@ public class PlayerController : MonoBehaviourPunCallbacks
         playerNickName.text = photonPlayer.NickName;
     }
 
-    private void Update() {
+    private void Update()
+    {
 
         if (photonPlayer.IsLocal)
         {
             Movements();
-            
+
             if (Input.GetKey(KeyCode.LeftControl) || CrossPlatformInputManager.GetButton("Shoot"))
             {
                 photonView.RPC("Fire", RpcTarget.All);
@@ -75,22 +72,22 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             transform.localEulerAngles = new Vector3(0, 45, 0);
             transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-        } 
+        }
         else if ((horizontal > 0 && vertical < 0) || (hori > 0 && verti < 0))
         {
             transform.localEulerAngles = new Vector3(0, 135, 0);
             transform.Translate(Vector3.forward * (speed * Time.deltaTime));
         }
-        else if ((horizontal < 0 && vertical < 0) || (hori < 0 && verti < 0)) 
+        else if ((horizontal < 0 && vertical < 0) || (hori < 0 && verti < 0))
         {
             transform.localEulerAngles = new Vector3(0, -135, 0);
             transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-        } 
+        }
         else if ((horizontal < 0 && vertical > 0) || (hori < 0 && verti > 0))
         {
-            transform.localEulerAngles = new Vector3(0, -45, 0); 
+            transform.localEulerAngles = new Vector3(0, -45, 0);
             transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-        } 
+        }
         else if ((horizontal > 0 && vertical == 0) || (hori > 0 && verti == 0))
         {
             transform.localEulerAngles = new Vector3(0, 90, 0);
@@ -100,7 +97,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             transform.localEulerAngles = new Vector3(0, -90, 0);
             transform.Translate(Vector3.forward * (speed * Time.deltaTime));
-        } 
+        }
         else if ((vertical > 0 && horizontal == 0) || (verti > 0 && hori == 0))
         {
             transform.localEulerAngles = new Vector3(0, 0, 0);
@@ -118,7 +115,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     {
         GameObject bullet = Instantiate(Resources.Load("bullet", typeof(GameObject))) as GameObject;
         bullet.name = photonPlayer.NickName;
-        Rigidbody rb = bullet.GetComponent<Rigidbody>(); 
+        Rigidbody rb = bullet.GetComponent<Rigidbody>();
         bullet.transform.localPosition = transform.position;
         bullet.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         rb.AddForce(this.transform.forward * 300f);
@@ -131,7 +128,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             if (other.name != photonPlayer.NickName)
             {
-                Debug.Log("hited"); StartCoroutine(PlayerColorChange());
+                Debug.Log("hit!"); StartCoroutine(PlayerColorChange());
             }
         }
     }

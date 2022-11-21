@@ -23,11 +23,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject imageTarget;
     
     //instance
-    public static GameManager instance;
+    public static GameManager Instance;
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     public PhotonView view;
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        Debug.Log("is tracking" + DefaultObserverEventHandler.isTracking);
+        //Debug.Log("is tracking" + DefaultObserverEventHandler.isTracking);
 
         foreach (var gameObj in FindObjectsOfType(typeof(GameObject)).Cast<GameObject>())
         {

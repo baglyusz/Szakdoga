@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Photon.Pun;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
@@ -9,20 +6,21 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        PhotonNetwork.ConnectUsingSettings();
         if (instance != null && instance != this)
         {
             gameObject.SetActive(false);
         }
         else
         {
-            instance = this; 
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
-        PhotonNetwork.ConnectUsingSettings();
+      //  PhotonNetwork.ConnectUsingSettings();
     }
 
     public void CreateRoom(string roomName)
