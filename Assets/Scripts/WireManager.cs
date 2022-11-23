@@ -16,7 +16,7 @@ public class WireManager : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI text;
 
-    private string feedback;
+    private string _feedback;
 
 
     private void Start()
@@ -31,18 +31,18 @@ public class WireManager : MonoBehaviour
         {
             canvas.gameObject.SetActive(true);
 
-            text.SetText(feedback);
+            text.SetText(_feedback);
             return;
         }
 
         if (_wireList.FindAll(x => x.Kaboom && x.BecomeCut).Count > 0)
         {
-            feedback = "ohno";
+            _feedback = "ohno";
             _gameEnded = true;
         }
         else if (_wireList.FindAll(x => x.ToBeCut && x.BecomeCut).Count >= _mustCut)
         {
-            feedback = "nice";
+            _feedback = "nice";
             _gameEnded = true;
         }
     }

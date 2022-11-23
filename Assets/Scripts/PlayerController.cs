@@ -41,15 +41,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+        if (!photonPlayer.IsLocal) return;
+        Movements();
 
-        if (photonPlayer.IsLocal)
+        if (Input.GetKey(KeyCode.LeftControl) || CrossPlatformInputManager.GetButton("Shoot"))
         {
-            Movements();
-
-            if (Input.GetKey(KeyCode.LeftControl) || CrossPlatformInputManager.GetButton("Shoot"))
-            {
-                photonView.RPC("Fire", RpcTarget.All);
-            }
+            photonView.RPC("Fire", RpcTarget.All);
         }
     }
 

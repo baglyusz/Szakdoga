@@ -7,7 +7,7 @@ public class Clicked : MonoBehaviour
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Ended)
         {
             var ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-            if (Physics.Raycast(ray, out RaycastHit hit))
+            if (Physics.Raycast(ray, out var hit))
             {
                 hit.collider.gameObject.GetComponent<IInteractable>().Interact();
             }

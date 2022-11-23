@@ -102,6 +102,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public void OnStartGameBtn()
     {
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Loading");
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "PlantsVsPlants");
     }
 }
