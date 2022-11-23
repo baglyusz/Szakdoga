@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviourPunCallbacks
 {
@@ -28,7 +26,6 @@ public class MenuManager : MonoBehaviourPunCallbacks
     {
         createRoomBtn.interactable = false;
         joinRoomBtn.interactable = false;
-
     }
 
     public override void OnConnectedToMaster()
@@ -99,11 +96,12 @@ public class MenuManager : MonoBehaviourPunCallbacks
 
     public void OnLeaveLobbyBtn()
     {
-        PhotonNetwork.LeaveRoom(); SetMenu(mainMenu);
+        PhotonNetwork.LeaveRoom(); 
+        SetMenu(mainMenu);
     }
 
     public void OnStartGameBtn()
     {
-        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "PlantVsPlants");
+        NetworkManager.instance.photonView.RPC("ChangeScene", RpcTarget.All, "Loading");
     }
 }
