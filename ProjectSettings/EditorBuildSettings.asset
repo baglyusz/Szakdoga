@@ -6,13 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main.unity
-    guid: 97fdaa6157da1f3479ec8b4947b723cf
-  - enabled: 0
-    path: Assets/Scenes/BombGame.unity
-    guid: 61c5c2ec28067554889bc3dcade498b7
-  - enabled: 1
-    path: Assets/Scenes/PlantsVSPlants.unity
-    guid: 4fd382fde0708f94f9b27c803970a6cf
+    path: Assets/Scenes/PhotonTest.unity
+    guid: b6c10d4d8cff287418a3e1d9427b49f0
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d2bdfcd97cb97d34aa34133a6ee1a2d5, type: 2}
