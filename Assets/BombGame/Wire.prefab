@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5631743850383688007}
   - component: {fileID: 2834976625655798415}
   - component: {fileID: 1089952578797577410}
-  - component: {fileID: 6984944272596550910}
+  - component: {fileID: 5875419026219836385}
   m_Layer: 0
   m_Name: Wire
   m_TagString: Untagged
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3891302542237946750}
-  m_LocalRotation: {x: -0, y: -0, z: 0.66618544, w: 0.7457862}
-  m_LocalPosition: {x: -0.0047903988, y: 0.0036540069, z: 0.01819716}
-  m_LocalScale: {x: 0.0030000003, y: 0.039999988, z: 0.0029999998}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.0030000003, y: 0.03, z: 0.0029999998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 83.547}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &5631743850383688007
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -99,7 +99,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &6984944272596550910
+--- !u!114 &5875419026219836385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3891302542237946750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8872f13e647c04b858f1ddfb8bfa28, type: 3}
+  m_Script: {fileID: 11500000, guid: 69cc113d65a3e164cb04db1e95990c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _toBeCut: 0
