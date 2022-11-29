@@ -1,99 +1,51 @@
-//using Photon.Pun;
-//using System.Collections.Generic;
-//using System.Linq;
-//using UnityEngine;
+using Photon.Pun;
+using UnityEngine.SceneManagement;
+using UnityEngine;
+using Photon.Realtime;
 
-//public class GameManager : MonoBehaviourPunCallbacks
-//{
-//    [Header("Status")]
-//    public bool gameEnded = false;
 
-//    [Header("Players")]
-//    public string playerPrefabLocation;
+public class GameManager : MonoBehaviourPunCallbacks
+{
+    public override void OnLeftRoom()
+    {
+        SceneManager.LoadScene(0); //Launcher scene indexed 0 in build settings
+    }
 
-//    public Transform[] spawnPoints;
+    public void LeaveRoom() //might be extended in the future
+    {
+        PhotonNetwork.LeaveRoom();
+    }
 
-//    public PlayerController[] players;
+    private void LoadArena()
+    {
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("PhotonNetwork : Trying to Load a level but we are not the master Client");
+            return;
+        }
 
-//    private int playersInGame;
+        Debug.Log($"PhotonNetwork : Loading Level : {PhotonNetwork.CurrentRoom.PlayerCount}");
+        PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
+    }
 
-//    private List<int> pickedSpawnIndex;
+    public override void OnPlayerEnteredRoom(Player other)
+    {
+        Debug.LogFormat("OnPlayerEnteredRoom() {0}", other.NickName); // not seen if you're the player connecting
 
-//    [Header("Reference")]
-//    public GameObject imageTarget;
-    
-//    //instance
-//    public static GameManager Instance;
+        if (!PhotonNetwork.IsMasterClient) return;
 
-//    private void Awake()
-//    {
-//        Instance = this;
-//    }
+        Debug.LogFormat("OnPlayerEnteredRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
+        LoadArena();
+    }
 
-//    public PhotonView view;
 
-//    private void Start()
-//    {
-//        pickedSpawnIndex = new List<int>();
-//        players = new PlayerController[PhotonNetwork.PlayerList.Length];
-//        photonView.RPC("ImInGame", RpcTarget.AllBuffered);
-//       // DefaultObserverEventHandler.isTracking = false;
-//    }
+    public override void OnPlayerLeftRoom(Player other)
+    {
+        Debug.LogFormat("OnPlayerLeftRoom() {0}", other.NickName); // seen when other disconnects
 
-//    private void Update()
-//    {
-//        //Debug.Log("is tracking" + DefaultObserverEventHandler.isTracking);
+        if (!PhotonNetwork.IsMasterClient) return;
 
-//        foreach (var gameObj in FindObjectsOfType(typeof(GameObject)).Cast<GameObject>())
-//        {
-//            if (gameObj.name == "Player(Clone)")
-//            {
-//                gameObj.transform.SetParent(imageTarget.transform);
-//            }
-//        }
-
-//        for (int i = 1; i < imageTarget.transform.childCount; i++)
-//        {
-          
-//            //imageTarget.transform.GetChild(i).gameObject.SetActive(DefaultObserverEventHandler.isTracking);
-//        }
-//    }
-
-//    [PunRPC]
-//    void ImInGame()
-//    {
-//        playersInGame++;
-//        if (playersInGame == PhotonNetwork.PlayerList.Length)
-//        {
-//            SpawnPlayer();
-//        }
-//    }
-
-//    void SpawnPlayer(){
-       
-//        var rand = Random.Range(0, spawnPoints.Length);
-
-//        while (pickedSpawnIndex.Contains(rand))
-//        {
-//            rand = Random.Range(0, spawnPoints.Length);
-//        }
-
-//        pickedSpawnIndex.Add(rand);
-        
-//        GameObject playerObject = PhotonNetwork.Instantiate(playerPrefabLocation, spawnPoints[rand].position, Quaternion.identity);
-                                                                                                                                                              
-//        PlayerController playerScript = playerObject.GetComponent<PlayerController>();
-
-//        playerScript.photonView.RPC("Initialize", RpcTarget.All, PhotonNetwork.LocalPlayer);
-//    }
-
-//    public PlayerController GetPlayer(int playerID)
-//    {
-//        return players.First(x => x.id == playerID);
-//    }
-
-//    public PlayerController GetPlayer(GameObject playerObj)
-//    {
-//        return players.First(x => x.gameObject == playerObj);
-//    }
-//}
+        Debug.LogFormat("OnPlayerLeftRoom IsMasterClient {0}", PhotonNetwork.IsMasterClient); // called before OnPlayerLeftRoom
+        LoadArena();
+    }
+}

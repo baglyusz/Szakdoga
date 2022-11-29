@@ -15,6 +15,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     private string gameVersion = "1";
 
+    bool isConnecting;
+
     private void Awake()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -34,13 +36,12 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsConnected)
         {
-            Debug.Log("Joining random room.. also button works yaay");
+            Debug.Log("Joining random room..");
             PhotonNetwork.JoinRandomRoom();
-
         }
         else
         {
-            PhotonNetwork.ConnectUsingSettings();
+            isConnecting = PhotonNetwork.ConnectUsingSettings();
             PhotonNetwork.GameVersion = gameVersion;
             Debug.Log("Connected to Photon Online Server..");
         }
@@ -48,8 +49,12 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-        Debug.Log(" Connected to master.");
-        PhotonNetwork.JoinRandomRoom();
+        if (isConnecting)
+        {
+            // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
+            PhotonNetwork.JoinRandomRoom();
+            isConnecting = false;
+        }
     }
 
 
@@ -68,6 +73,11 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        Debug.Log("Joined room successfully.");
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            Debug.Log("We load the 'Room for 1' ");
+
+            PhotonNetwork.LoadLevel("RoomFor1");
+        }
     }
 }
