@@ -24,8 +24,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        Debug.Log($"PhotonNetwork : Loading Level : {PhotonNetwork.CurrentRoom.PlayerCount}");
-        PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.CurrentRoom.PlayerCount);
+        // Debug.Log($"PhotonNetwork : Loading Level : {PhotonNetwork.CurrentRoom.PlayerCount}");
+        //PhotonNetwork.LoadLevel("RoomFor" + PhotonNetwork.CurrentRoom.PlayerCount);
+
+        Debug.Log("Loading game..");
+        PhotonNetwork.LoadLevel("NetworkingTest");
     }
 
     public override void OnPlayerEnteredRoom(Player other)

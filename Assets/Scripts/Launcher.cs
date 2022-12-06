@@ -13,9 +13,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField]
     private GameObject controlPanel;
 
-    private string gameVersion = "1";
+    private const string GameVersion = "1";
 
-    bool isConnecting;
+    private bool _isConnecting;
 
     private void Awake()
     {
@@ -24,13 +24,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        Debug.Log("Connecting..");
         progressLabel.SetActive(false);
         controlPanel.SetActive(true);
     }
 
     public void Connect()
     {
+        Debug.Log("Connecting..");
         progressLabel.SetActive(true);
         controlPanel.SetActive(false);
 
@@ -41,22 +41,20 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         else
         {
-            isConnecting = PhotonNetwork.ConnectUsingSettings();
-            PhotonNetwork.GameVersion = gameVersion;
-            Debug.Log("Connected to Photon Online Server..");
+            _isConnecting = PhotonNetwork.ConnectUsingSettings();
+            PhotonNetwork.GameVersion = GameVersion;
         }
     }
 
     public override void OnConnectedToMaster()
     {
-        if (isConnecting)
+        Debug.Log("Connected to server.");
+        if (_isConnecting)
         {
-            // #Critical: The first we try to do is to join a potential existing room. If there is, good, else, we'll be called back with OnJoinRandomFailed()
             PhotonNetwork.JoinRandomRoom();
-            isConnecting = false;
+            _isConnecting = false;
         }
     }
-
 
     public override void OnDisconnected(DisconnectCause cause)
     {
@@ -72,12 +70,11 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinedRoom()
-    {
-        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
-        {
-            Debug.Log("We load the 'Room for 1' ");
-
-            PhotonNetwork.LoadLevel("RoomFor1");
-        }
+    {   
+        //if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        //{
+            Debug.Log("Loading game scene");
+            PhotonNetwork.LoadLevel("NetworkingTest");
+        //}
     }
 }
