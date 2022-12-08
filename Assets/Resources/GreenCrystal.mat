@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GhostA
+  m_Name: GreenCrystal
   m_Shader: {fileID: -6465566751694194690, guid: 7bd8bbb62917d954a9c3aef0d1bd7e92, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -50,8 +50,8 @@ Material:
     - _Metallic: 0.315
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.28
+    - _Smoothness: 0.257
     m_Colors:
-    - _BaseColor: {r: 0.24530342, g: 0.23843007, b: 0.3584906, a: 0.5019608}
-    - _TopColor: {r: 0, g: 0.3254902, b: 1, a: 0.54509807}
+    - _BaseColor: {r: 0.044143822, g: 0.29373068, b: 0.3018868, a: 0.5019608}
+    - _TopColor: {r: 0, g: 1, b: 0.5578947, a: 0.54509807}
   m_BuildTextureStacks: []

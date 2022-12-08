@@ -9,13 +9,13 @@ EditorBuildSettings:
     path: Assets/Scenes/Launcher.unity
     guid: 78442543b44a00a438746aaccb2fe858
   - enabled: 1
-    path: Assets/Scenes/NetworkingTest.unity
-    guid: e0c97b3008553db4eb8f8806ac2161ae
-  - enabled: 0
-    path: Assets/Scenes/Loading.unity
-    guid: c05dcc0e5fa985b43a31297718a67ccc
-  - enabled: 0
-    path: Assets/Scenes/Lobby.unity
-    guid: 2a216cb12eee35740ba17f6c79484710
+    path: Assets/Scenes/Decision.unity
+    guid: 6693290e7ef06b4408ecf6a78a024c71
+  - enabled: 1
+    path: Assets/Scenes/BombGame.unity
+    guid: 774ec7024a07c4e49b9a27952882237f
+  - enabled: 1
+    path: Assets/Scenes/WordPuzzle.unity
+    guid: a3c5531b1d9f93345837a91e41b5161b
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 85a609802d308a34096c6b7b8d5b267c, type: 2}

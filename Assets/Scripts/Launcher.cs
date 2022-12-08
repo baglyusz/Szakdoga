@@ -70,11 +70,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     }
 
     public override void OnJoinedRoom()
-    {   
-        //if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
-        //{
-            Debug.Log("Loading game scene");
-            PhotonNetwork.LoadLevel("NetworkingTest");
-        //}
+    {
+        Debug.Log("Loading game scene");
+        PhotonNetwork.LoadLevel("Decision");
     }
 }

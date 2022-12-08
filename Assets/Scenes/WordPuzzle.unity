@@ -898,6 +898,7 @@ GameObject:
   - component: {fileID: 1267251957}
   - component: {fileID: 1267251956}
   - component: {fileID: 1267251955}
+  - component: {fileID: 1267251958}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -969,7 +970,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1267251956}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1267251958}
+        m_TargetAssemblyTypeName: WordPuzzle, Assembly-CSharp
+        m_MethodName: OnAnswered
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1267251956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1008,6 +1021,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1267251953}
   m_CullTransparentMesh: 1
+--- !u!114 &1267251958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267251953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1710f2470a6c3341a789469ae1a9b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InputField: {fileID: 1734535760}
+  Text: {fileID: 1479737267}
 --- !u!1 &1267272217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1046,7 @@ GameObject:
   - component: {fileID: 1267272221}
   - component: {fileID: 1267272220}
   - component: {fileID: 1267272219}
-  - component: {fileID: 1267272218}
+  - component: {fileID: 1267272222}
   m_Layer: 0
   m_Name: ImageTarget
   m_TagString: Untagged
@@ -1027,25 +1054,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1267272218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267272217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mObserverBehaviour: {fileID: 1267272220}
-  mHiddenRoot: {fileID: 0}
-  mTargetName: hon
-  mDatasetName: Vuforia/JCards.xml
-  mCastedBehaviour: {fileID: 1267272220}
-  mMeshFilter: {fileID: 0}
-  mMeshRenderer: {fileID: 0}
 --- !u!114 &1267272219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,7 +1123,7 @@ MonoBehaviour:
   mMotionHint: 1
   mTrackingOptimization: 0
   mTrackingOptimizationNeedsUpgrade: 0
-  mPreview: {fileID: 1267272218}
+  mPreview: {fileID: 1267272222}
 --- !u!4 &1267272221
 Transform:
   m_ObjectHideFlags: 0
@@ -1131,6 +1139,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1267272222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267272217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1778676317, guid: 8a9a760f95896c34689febc965510927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mObserverBehaviour: {fileID: 1267272220}
+  mHiddenRoot: {fileID: 0}
+  mTargetName: hon
+  mDatasetName: Vuforia/JCards.xml
+  mCastedBehaviour: {fileID: 1267272220}
+  mMeshFilter: {fileID: 0}
+  mMeshRenderer: {fileID: 0}
 --- !u!1 &1328367152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,8 +1193,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -120.19998, y: -5.600006}
-  m_SizeDelta: {x: -1084.649, y: -252.788}
+  m_AnchoredPosition: {x: -74.979004, y: -15.765991}
+  m_SizeDelta: {x: -848.418, y: -275.075}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1328367154
 MonoBehaviour:
@@ -1339,7 +1366,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1479737268
 RectTransform:
   m_ObjectHideFlags: 0
