@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Clicked">
+    <Position X="12.75" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true">
+      <Path>
+        <Point X="11" Y="3.941" />
+        <Point X="11" Y="4.839" />
+        <Point X="13.5" Y="4.839" />
+        <Point X="13.5" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Clicked.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wire">
+    <Position X="7.5" Y="5.75" Width="1.5" />
+    <InheritanceLine Type="UnityEngine.MonoBehaviour" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="11" Y="3.941" />
+        <Point X="11" Y="4.828" />
+        <Point X="8.625" Y="4.828" />
+        <Point X="8.625" Y="5.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>SAAIAgAAACAAAAAAAAAAAAAAKAAAAAgBAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Wire.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.137" />
+  </Class>
+  <Class Name="WireManager">
+    <Position X="10.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQQAAAAACAAAAAAAAAAABACAAAACAAIAEAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\WireManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="_wireList" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="UnityEngine.MonoBehaviour" Collapsed="true">
+    <Position X="10.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="IInteractable">
+    <Position X="7.5" Y="3.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\IInteractable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

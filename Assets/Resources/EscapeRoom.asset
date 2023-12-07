@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818e05e7280d8f44fbb7e52ea46abdac, type: 3}
+  m_Name: EscapeRoom
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - baseNodeGuid: 6bd6f2c3-632a-4456-a123-7b868e789c90
+    portName: Next
+    targetNodeGuid: 735c2e18-91a8-4c7f-8f6f-598b09329ba8
+  - baseNodeGuid: 735c2e18-91a8-4c7f-8f6f-598b09329ba8
+    portName: Next
+    targetNodeGuid: 6a28ead7-0767-4430-81a1-8a87e8f13013
+  - baseNodeGuid: 6a28ead7-0767-4430-81a1-8a87e8f13013
+    portName: First Floor
+    targetNodeGuid: a0379b0d-e445-4714-82c3-fc260f69f02c
+  - baseNodeGuid: 6a28ead7-0767-4430-81a1-8a87e8f13013
+    portName: Basement
+    targetNodeGuid: 9ff37ef6-f2c9-4e13-9504-4fb9c5f800fe
+  - baseNodeGuid: a0379b0d-e445-4714-82c3-fc260f69f02c
+    portName: Next
+    targetNodeGuid: b5b4da1e-aae7-45b5-bb2f-f2b8eeea3f9d
+  DialogueNodeDatas:
+  - guid: 735c2e18-91a8-4c7f-8f6f-598b09329ba8
+    dialogueText: Launcher
+    position: {x: 262, y: 200}
+  - guid: 6a28ead7-0767-4430-81a1-8a87e8f13013
+    dialogueText: Decision
+    position: {x: 521, y: 200}
+  - guid: b5b4da1e-aae7-45b5-bb2f-f2b8eeea3f9d
+    dialogueText: Multitarget Game
+    position: {x: 1098, y: 103}
+  - guid: a0379b0d-e445-4714-82c3-fc260f69f02c
+    dialogueText: Bomb Game
+    position: {x: 796, y: 103}
+  - guid: 9ff37ef6-f2c9-4e13-9504-4fb9c5f800fe
+    dialogueText: Word Puzzle
+    position: {x: 796, y: 351}
